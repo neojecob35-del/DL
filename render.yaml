@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: frame-video-downloader
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: ALLOW_PUBLIC
+        value: "1"
+      - key: FRAME_DOWNLOADER_DATA_DIR
+        value: /tmp/frame-data
